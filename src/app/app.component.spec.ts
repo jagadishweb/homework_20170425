@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LogoutComponent } from './account/logout.component';
 import { UserDetailComponent } from './user/detail.component';
 import { APP_BASE_HREF } from '@angular/common';
-
+import { FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -21,7 +21,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent, DashboardComponent, UserInfoComponent, LogoutComponent, UserDetailComponent
       ],
-      imports: [ MaterialModule.forRoot(), AppRoutingModule ],
+      imports: [ FormsModule, MaterialModule.forRoot(), AppRoutingModule ],
     }).compileComponents();
   }));
 

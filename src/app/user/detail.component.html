@@ -1,30 +1,35 @@
 <md-card>
   <md-card-header>
     <md-icon md-card-avatar color="accent">account_box</md-icon>
-    <md-card-title><h3>Edit User</h3></md-card-title>
+    <md-card-title><h3><span>{{pageFor}}</span> User</h3></md-card-title>
   </md-card-header>
   <md-card-content>
-    <form class="user_edit_form">
+    <form class="user_edit_form" name="userForm">
       <md-input-container class="full-width">
-        <input mdInput type="email" placeholder="Email Address" value="{{user.email}}" name="email"/>
+        <input mdInput type="email" placeholder="Email Address" [(ngModel)]="user.email" value="{{user.email}}" name="email"/>
       </md-input-container>
       <table class="full-width" cellspacing="0">
         <tr>
           <td>
             <md-input-container class="full-width">
-              <input mdInput placeholder="First name" value="{{user.first_name}}">
+              <input mdInput placeholder="First name" [(ngModel)]="user.first_name" value="{{user.first_name}}" name="firstName">
             </md-input-container>
           </td>
           <td>
             <md-input-container class="full-width">
-              <input mdInput placeholder="Last Name" value="{{user.last_name}}">
+              <input mdInput placeholder="Last Name" [(ngModel)]="user.last_name" value="{{user.last_name}}" name="lastName">
             </md-input-container>
           </td>
         </tr>
       </table>
-      <input type="submit" value="Save">
+      <input type="submit" value="Save" (click)="saveUser()">
+      <div class="error-list" *ngIf="errorMessages.length > 0">
+        <ul>
+          <li *ngFor="let msg of errorMessages">
+            <span>{{msg}}</span>
+          </li>
+        </ul>
+      </div>
     </form>
-
   </md-card-content>
 </md-card>
- 
